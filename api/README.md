@@ -4,43 +4,36 @@ This is a FastAPI-based backend service that provides a streaming chat interface
 
 ## Prerequisites
 
-- [`uv`](https://github.com/astral-sh/uv) package manager (`pip install uv`)
-- `uv` will provision Python 3.11 automatically for this project, so no separate interpreter installation is required
-- An OpenAI API key available as the `OPENAI_API_KEY` environment variable when you run the server
+- Python 3.8 or higher
+- pip (Python package manager)
+- An OpenAI API key
 
 ## Setup
 
-All commands below assume you are running them from the repository root.
-
-1. Install dependencies into a local virtual environment managed by `uv`:
-
+1. Create a virtual environment (recommended):
 ```bash
-uv sync
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
 ```
 
-2. (Optional) Activate the virtual environment if you prefer to run commands manually:
-
+2. Install the required dependencies:
 ```bash
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install fastapi uvicorn openai pydantic
 ```
-
-`uv` will create the `.venv` directory automatically on first sync and download Python 3.11 if it's not already available.
 
 ## Running the Server
 
-Start the FastAPI app with the dependencies managed by `uv`:
-
+1. Make sure you're in the `api` directory:
 ```bash
-uv run python api/app.py
+cd api
 ```
 
-This runs the app with `uvicorn` on `http://localhost:8000`. To enable autoreload during development, use:
-
+2. Start the server:
 ```bash
-uv run uvicorn api.app:app --reload
+python app.py
 ```
 
-Both commands assume the `OPENAI_API_KEY` environment variable is set in the shell that launches the server.
+The server will start on `http://localhost:8000`
 
 ## API Endpoints
 

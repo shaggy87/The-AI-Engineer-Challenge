@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', monospace;
+  background: #000;
+  color: #FFD700;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Star Wars intro crawl styles */
+.intro-crawl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-text {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  color: #FFD700;
+  font-size: 24px;
+  line-height: 1.8;
+  font-weight: 400;
+  animation: crawl 10s linear forwards;
+}
+
+.intro-title {
+  font-size: 72px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  text-shadow: 0 0 20px #FFD700;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes crawl {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px #FFD700;
+  }
+  to {
+    text-shadow: 0 0 30px #FFD700, 0 0 40px #FFD700;
+  }
+}
+
+/* Terminal styles */
+.terminal-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.8) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 215, 0, 0.03) 2px,
+      rgba(255, 215, 0, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.terminal-header {
+  background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%);
+  border-bottom: 2px solid #FFD700;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.terminal-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 0 10px #FFD700;
+  margin-bottom: 10px;
+}
+
+.terminal-subtitle {
+  font-size: 14px;
+  color: #FFF;
+  opacity: 0.8;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+.input-section {
+  background: rgba(255, 215, 0, 0.05);
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFD700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.terminal-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 15px;
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  color: #FFD700;
+  transition: all 0.3s ease;
+}
+
+.terminal-input:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.terminal-input::placeholder {
+  color: rgba(255, 215, 0, 0.5);
+}
+
+.terminal-textarea {
+  height: 120px;
+  resize: vertical;
+  min-height: 80px;
+  font-family: 'Orbitron', monospace;
+}
+
+.execute-button {
+  background: linear-gradient(45deg, #FFD700 0%, #FFA500 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-family: 'Orbitron', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.execute-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+  background: linear-gradient(45deg, #FFA500 0%, #FFD700 100%);
+}
+
+.execute-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.output-section {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  padding: 25px;
+  min-height: 200px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+}
+
+.output-header {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFD700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.output-content {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #FFF;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.loading-indicator {
+  display: inline-block;
+  color: #FFD700;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Typing effect */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  background: #FFD700;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminal-header {
+    padding: 15px;
+  }
+  
+  .terminal-title {
+    font-size: 20px;
+  }
+  
+  .terminal-body {
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .intro-text {
+    font-size: 18px;
+    width: 90%;
+  }
+  
+  .intro-title {
+    font-size: 48px;
+  }
+}
+
+/* Stars background effect */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: #FFD700;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
