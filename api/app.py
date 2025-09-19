@@ -39,6 +39,13 @@ async def chat(request: ChatRequest):
         
         # Create an async generator function for streaming responses
         async def generate():
+            # general improvements
+            request.developer_message += "Always keep answers simple as possible and offer to go deeper in topic or to give more advanced or answer with more details."
+            # improvement for all answers
+            request.developer_message += "Always try to make output more rich in text styles. Use bold, italic, icons and other font styles to make important parts of text to stand out. Dont use colors for in style. The styling must be HTML formated."
+            # improvement for mathematical questions
+            request.developer_message += "When asked mathematical questions, dont list the steps how you came to the answer, but always offer if user wants you to list the steps too."
+            
             # Create a streaming chat completion request
             stream = client.chat.completions.create(
                 model=request.model,
