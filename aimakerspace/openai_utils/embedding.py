@@ -2,7 +2,13 @@ import asyncio
 import os
 from typing import Iterable, List
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # dotenv is not available, skip loading .env file
+    pass
+
 from openai import AsyncOpenAI, OpenAI
 
 
@@ -10,7 +16,6 @@ class EmbeddingModel:
     """Helper for generating embeddings via the OpenAI API."""
 
     def __init__(self, embeddings_model_name: str = "text-embedding-3-small"):
-        load_dotenv()
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
         if self.openai_api_key is None:
             raise ValueError(

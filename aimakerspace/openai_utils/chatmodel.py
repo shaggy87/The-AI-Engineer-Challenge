@@ -1,10 +1,14 @@
 import os
 from typing import Any, AsyncIterator, Iterable, List, MutableMapping
 
-from dotenv import load_dotenv
-from openai import AsyncOpenAI, OpenAI
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # dotenv is not available, skip loading .env file
+    pass
 
-load_dotenv()
+from openai import AsyncOpenAI, OpenAI
 
 ChatMessage = MutableMapping[str, Any]
 
