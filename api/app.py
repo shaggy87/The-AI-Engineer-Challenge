@@ -1,7 +1,11 @@
 # Add parent directory to Python path for aimakerspace imports
 import sys
 import os
+import warnings
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Suppress multipart boundary warnings
+warnings.filterwarnings("ignore", message="Skipping data after last boundary")
 
 # Import required FastAPI components for building the API
 from fastapi import FastAPI, HTTPException, File, UploadFile, Form
