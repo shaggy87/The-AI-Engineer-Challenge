@@ -1,0 +1,82 @@
+PDF RAG Dependencies - Manual Installation Commands
+==================================================
+
+If the Python installation script fails, try these manual commands:
+
+BASIC INSTALLATION:
+-------------------
+pip install pdfplumber
+pip install numpy
+pip install python-multipart
+
+ALTERNATIVE APPROACHES:
+-----------------------
+
+1. With --user flag (if you don't have admin rights):
+   pip install --user pdfplumber
+   pip install --user numpy
+   pip install --user python-multipart
+
+2. Upgrade pip first:
+   python -m pip install --upgrade pip
+   pip install pdfplumber numpy python-multipart
+
+3. Force reinstall:
+   pip install --force-reinstall pdfplumber
+   pip install --force-reinstall numpy
+   pip install --force-reinstall python-multipart
+
+4. Using conda (if you have Anaconda/Miniconda):
+   conda install -c conda-forge pdfplumber
+   conda install numpy
+   pip install python-multipart
+
+5. Virtual environment (recommended):
+   python -m venv pdf_rag_env
+
+   # Windows:
+   pdf_rag_env\Scripts\activate
+
+   # Mac/Linux:
+   source pdf_rag_env/bin/activate
+
+   pip install pdfplumber numpy python-multipart
+
+VERIFY INSTALLATION:
+-------------------
+Test if packages are installed correctly:
+
+python -c "import pdfplumber; print('pdfplumber works!')"
+python -c "import numpy; print('numpy works!')"
+python -c "import multipart; print('python-multipart works!')"
+
+TROUBLESHOOTING:
+---------------
+If you still have issues:
+
+1. Check Python version: python --version
+   (Requires Python 3.7+)
+
+2. Check pip version: pip --version
+
+3. Clear pip cache: pip cache purge
+
+4. Try with verbose output: pip install -v pdfplumber
+
+5. Windows users: Run Command Prompt as Administrator
+
+6. Mac users: You might need: pip3 instead of pip
+
+7. Linux users: You might need: python3 -m pip install
+
+QUICK TEST:
+----------
+Once installed, run this to test PDF functionality:
+
+python -c "
+import pdfplumber
+import numpy as np
+print('✅ All dependencies working!')
+print(f'pdfplumber version: {pdfplumber.__version__}')
+print(f'numpy version: {np.__version__}')
+"

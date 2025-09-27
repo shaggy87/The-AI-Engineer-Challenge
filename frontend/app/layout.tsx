@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Star Wars Terminal',
-  description: 'A long time ago in a galaxy far, far away...',
+  title: 'Casino Game Design Consultant',
+  description: 'Professional casino game design consultation platform. Upload your GDD and get expert guidance on mechanics, monetization, and player engagement.',
 }
 
 export default function RootLayout({

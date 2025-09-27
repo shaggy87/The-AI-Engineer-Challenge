@@ -1,22 +1,20 @@
-# Star Wars Terminal Frontend
+# Casino Game Design Consultant Frontend
 
-A Star Wars-themed terminal interface for interacting with AI using Next.js and the FastAPI backend.
+A vibrant casino game design consultation platform built with Next.js and FastAPI backend.
 
-## Features
+## 🎰 Features
 
-- 🌟 Epic Star Wars intro sequence with crawling text
-- 🤖 Terminal-style interface with golden Star Wars aesthetic
-- ⚡ Real-time streaming responses from OpenAI API
-- 🔒 Secure API key input (password field)
-- 🎯 Responsive design that works on all devices
-- ✨ Animated stars background
-- ⌨️ Keyboard shortcuts (Ctrl+Enter to execute)
+- 🌟 Epic casino-themed intro sequence with scrolling text
+- 🎯 Professional consultation interface with golden casino aesthetic
+- 📄 Game Design Document (GDD) upload and analysis
+- 🤖 Expert casino game design consultation powered by AI
+- 💎 Animated casino gems background
+- 🚀 Real-time streaming responses
 
 ## Quick Start
 
 1. **Install dependencies:**
    ```bash
-   cd frontend
    npm install
    ```
 
@@ -32,55 +30,68 @@ A Star Wars-themed terminal interface for interacting with AI using Next.js and 
    ```
 
 4. **Open your browser:**
-   Go to http://localhost:3000
+   Navigate to `http://localhost:3000`
 
-## How to Use
+## 🎯 How to Use
 
-1. **Watch the Star Wars intro** (click anywhere to skip)
-2. **Enter your OpenAI API key** in the "Access Key" field
-3. **Customize the System Directive** (optional) - this controls how the AI behaves
-4. **Type your message** in the "Transmission" field
-5. **Click "Execute Command"** or press Ctrl+Enter
-6. **Watch the AI response** stream in real-time
+1. **Watch the casino game design intro** (click anywhere to skip)
+2. **Enter your OpenAI API key**
+3. **Upload your Game Design Document** (PDF format)
+4. **Start chatting** with your expert consultant about:
+   - Game mechanics and features
+   - Monetization strategies
+   - Player engagement techniques
+   - Regulatory compliance
+   - Mathematical models (RTP, volatility)
+   - Market analysis
 
-## API Key Setup
+## 🔑 Getting an OpenAI API Key
 
-You need an OpenAI API key to use this application:
-
-1. Go to https://platform.openai.com/api-keys
-2. Create a new API key
+1. Go to [OpenAI Platform](https://platform.openai.com)
+2. Create an account or log in
+3. Navigate to API keys section
+4. Create a new secret key
 3. Copy the key (starts with `sk-`)
-4. Paste it into the "Access Key" field in the terminal
+4. Paste it into the application
 
-## Scripts
+## 📄 Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Next.js 14** - React framework with App Router
+- **Next.js 14** - React framework
 - **TypeScript** - Type safety
-- **CSS3** - Custom Star Wars styling with animations
-- **Orbitron Font** - Futuristic monospace font
-- **Streaming API** - Real-time response handling
+- **CSS3** - Custom casino game styling with animations
+- **FastAPI** - Python backend API
+- **OpenAI GPT** - AI consultation engine
+
+## 🎨 Customization
+
+You can customize the casino game design theme by modifying:
+
+- Colors and gradients in `globals.css`
+- Intro text in `CasinoIntro.tsx`
+- Consultation prompts in `page.tsx`
+
+## 🎰 File Upload
+
+Supported formats:
+- PDF Game Design Documents
+- Maximum file size: As configured in backend
+- Processing includes text extraction and vector indexing
+
+## 🎮 Keyboard Shortcuts
+
+- `Click anywhere during intro` - Skip casino intro
+- `Enter` - Send message / Submit form
+- `Shift + Enter` - New line in message input
 
 ## Backend Integration
 
-The frontend automatically proxies API requests to the FastAPI backend running on port 8000. Make sure both servers are running for full functionality.
+The frontend automatically connects to the FastAPI backend running on port 8000. Make sure both servers are running for full functionality.
 
-## Keyboard Shortcuts
-
-- `Ctrl+Enter` - Execute command
-- `Click anywhere during intro` - Skip Star Wars intro
-
-## Customization
-
-You can customize the Star Wars theme by modifying:
-- Colors in `globals.css` (search for `#FFD700` for the gold color)
-- Intro text in `StarWarsIntro.tsx`
-- Terminal messages in `Terminal.tsx`
-
-May the Force be with your coding! ⚔️
+Ready to design the next casino gaming sensation! 🎰✨
