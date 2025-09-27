@@ -2,6 +2,7 @@
 import sys
 import os
 import warnings
+import tempfile
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Suppress multipart boundary warnings
@@ -97,11 +98,11 @@ async def upload_pdf(pdf_file: UploadFile = File(...), api_key: str = Form(...))
         if not pdf_file.filename.endswith('.pdf'):
             raise HTTPException(status_code=400, detail="File must be a PDF")
 
-        # Save the uploaded file temporarily
-        temp_file_path = f"temp_{pdf_file.filename}"
-        with open(temp_file_path, "wb") as buffer:
+        # Save the uploaded file to a temporary directory
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
             content = await pdf_file.read()
-            buffer.write(content)
+            temp_file.write(content)
+            temp_file_path = temp_file.name
 
         # Process the online casino compliance document using aimakerspace PDFLoader
         try:
@@ -164,7 +165,10 @@ async def upload_pdf(pdf_file: UploadFile = File(...), api_key: str = Form(...))
             suggested_questions = generated_questions
 
             # Clean up temporary file
-            os.remove(temp_file_path)
+            try:
+                os.unlink(temp_file_path)
+            except OSError:
+                pass  # File might already be deleted
 
             return {
                 "success": True,
@@ -176,8 +180,11 @@ async def upload_pdf(pdf_file: UploadFile = File(...), api_key: str = Form(...))
 
         except Exception as e:
             # Clean up temporary file in case of error
-            if os.path.exists(temp_file_path):
-                os.remove(temp_file_path)
+            try:
+                if os.path.exists(temp_file_path):
+                    os.unlink(temp_file_path)
+            except OSError:
+                pass  # File might already be deleted
             raise HTTPException(status_code=500, detail=f"Error processing online casino compliance document: {str(e)}")
 
     except HTTPException:
